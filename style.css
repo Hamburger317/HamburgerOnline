@@ -1,0 +1,93 @@
+:root {
+    --marquee-scroll-time: 30s;
+}
+
+;
+
+html {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    position: relative;
+}
+
+section {
+    display: block;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Credits to https://www.w3schools.in/css3/css-marquee */
+.marquee {
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    background: #fefefe;
+
+    margin-left: 5%;
+    margin-right: 5%;
+
+    color: #333;
+    border: 1px solid #4a4a4a;
+}
+
+.marquee p {
+    -moz-animation-play-state: running;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    line-height: 50px;
+    text-align: center;
+
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+
+    animation: scroll-left var(--marquee-scroll-time) linear infinite;
+    -moz-animation: scroll-left var(--marquee-scroll-time) linear infinite;
+    -webkit-animation: scroll-left var(--marquee-scroll-time) linear infinite;
+}
+
+@-moz-keyframes scroll-left {
+    0% {
+        -moz-transform: translateX(100%);
+    }
+
+    100% {
+        -moz-transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes scroll-left {
+    0% {
+        -webkit-transform: translateX(100%);
+    }
+
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-left {
+    0% {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+
+    100% {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
