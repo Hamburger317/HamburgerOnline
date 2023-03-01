@@ -2,16 +2,23 @@
     --marquee-scroll-time: 30s;
 };
 
+html {
+    height: 100%;
+    position: relative;
+}
+
 body {
     margin: 0;
-    height: 100vh;
+    height: 100%;
+    position: relative;
 }
 
 section {
-    margin: 1%;
-    min-height: 100vh;
-}
+    display: block;
 
+    height:100vh;
+    width: 100vw;
+}
 
 /* Credits to https://www.w3schools.in/css3/css-marquee */
 .marquee {
@@ -19,6 +26,10 @@ section {
     overflow: hidden;
     position: relative;
     background: #fefefe;
+
+    margin-left: 5%;
+    margin-right: 5%;
+
     color: #333;
     border: 1px solid #4a4a4a;
 }
