@@ -1,3 +1,15 @@
+const marqueeText = document.getElementById("homescreen-marquee-text");
+const disableAnimationsButton = document.getElementById("disable-animations")
+
+
+disableAnimationsButton.addEventListener("click", (event) => {
+    let state = marqueeText.style.animationPlayState == 'paused' || '' ? 'running' : 'paused';
+    marqueeText.style.animationPlayState = state;
+
+    /* from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p */
+    [event.target.innerText, event.target.dataset.toggleText] = [event.target.dataset.toggleText, event.target.innerText];
+})
+
 function* cycle(array) {
     // Duplicate Array
     let saved = array.slice(0);
@@ -19,9 +31,9 @@ const marqueeCycle = cycle([
     "Slava Ukraini!!!"
 ]);
 
-const marqueeText = document.getElementById("homescreen-marquee-text");
-
 marqueeText.addEventListener("animationiteration", () => {
     const nextMessage = marqueeCycle.next().value;
     marqueeText.innerText = nextMessage;
 });
+
+

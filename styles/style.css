@@ -35,7 +35,9 @@ section {
 }
 
 .marquee p {
-
+    -moz-animation-play-state: running;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
 
     position: absolute;
     width: 100%;
