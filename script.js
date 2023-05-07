@@ -1,42 +1,51 @@
-const marqueeText = document.getElementById("homescreen-marquee-text");
-const disableAnimationsButton = document.getElementById("disable-animations");
+class TextMarquee {
+    #marqueeIndex = 0;
 
-disableAnimationsButton.addEventListener("click", (event) => {
-    let state =
-        marqueeText.style.animationPlayState == "paused" || ""
-            ? "running"
-            : "paused";
-    marqueeText.style.animationPlayState = state;
+    constructor(cycle, marqueeTextElement) {
+        this.cycle = cycle;
+        this.marquee = marqueeTextElement;
+    }
 
-    /* from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p */
-    [event.target.innerText, event.target.dataset.toggleText] = [
-        event.target.dataset.toggleText,
-        event.target.innerText,
-    ];
-});
+    marqueeRender() {
+        this.marquee.addEventListener("animationiteration", () => {
+            this.marquee.innerText = this.cycle[this.#marqueeIndex];
 
-function* cycle(array) {
-    // Duplicate Array
-    let saved = array.slice(0);
-
-    while (saved) {
-        for (let index = 0; index < saved.length; index++) {
-            const element = saved[index];
-            yield element;
-        }
+            this.#marqueeIndex = ++this.#marqueeIndex % this.cycle.length;
+        });
     }
 }
 
-// :3
-const marqueeCycle = cycle([
-    "Trans Rights!",
-    "Black Lives Matter!",
-    "LGBTQ+ Rights are Human Rights!",
-    "You matter!!",
-    "Slava Ukraini!!!",
-]);
+const main = () => {
+    const marqueeText = document.getElementById("homescreen-marquee-text");
+    const disableAnimationsButton =
+        document.getElementById("disable-animations");
 
-marqueeText.addEventListener("animationiteration", () => {
-    const nextMessage = marqueeCycle.next().value;
-    marqueeText.innerText = nextMessage;
-});
+    disableAnimationsButton.addEventListener("click", (event) => {
+        let state =
+            marqueeText.style.animationPlayState == "paused" || ""
+                ? "running"
+                : "paused";
+        marqueeText.style.animationPlayState = state;
+
+        /* from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p */
+        [event.target.innerText, event.target.dataset.toggleText] = [
+            event.target.dataset.toggleText,
+            event.target.innerText,
+        ];
+    });
+
+    // :3
+    const marqueeCycle = [
+        "Trans Rights!",
+        "Black Lives Matter!",
+        "LGBTQ+ Rights are Human Rights!",
+        "You matter!!",
+        "Slava Ukraini!!!",
+        "It's okay to not be okay!",
+    ];
+
+    let mar = new TextMarquee(marqueeCycle, marqueeText);
+    mar.marqueeRender();
+};
+
+main();
