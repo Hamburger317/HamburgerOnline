@@ -1,0 +1,16 @@
+.rainbow {
+    background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, purple);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bisexual {
+    background: -webkit-linear-gradient(left,
+                                      rgb(214, 2, 112),
+                                      rgb(155, 79, 150),
+                                      rgb(0, 56, 168));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
