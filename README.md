@@ -1,4 +1,4 @@
-# The Planet Hamburger Website.
+# The Planet Hamburger Website
 
 Welcome to Hamburger Online!
 
@@ -6,7 +6,7 @@ Welcome to Hamburger Online!
 
 In order to push changes onto GitHub and Neocities, use the command below.
 
-```console
-$ git push
-$ neocities push .
-```
+    ```console
+    git push
+    neocities push .
+    ```
