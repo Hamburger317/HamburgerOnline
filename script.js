@@ -43,6 +43,9 @@ const main = () => {
         "Free Palestine!!!",
         "Slava Ukraini!!!",
         "It's okay to not be okay!",
+        "Stay hopeful.",
+        "We're all going to make it.",
+        "Even the tiniest bits of scraps of hope can save lives, talk to someone who wants help.",
     ];
 
     let mar = new TextMarquee(marqueeCycle, marqueeText);
