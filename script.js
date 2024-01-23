@@ -40,6 +40,7 @@ const main = () => {
         "Black Lives Matter!",
         "LGBTQ+ Rights are Human Rights!",
         "You matter!!",
+        "Free Palestine!!!",
         "Slava Ukraini!!!",
         "It's okay to not be okay!",
     ];
