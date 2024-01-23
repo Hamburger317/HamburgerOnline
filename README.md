@@ -12,3 +12,7 @@ In order to push changes onto GitHub and Neocities, use the command below.
 git push
 neocities push .
 ```  
+
+## Conventions
+
+Not much, other than I'll be indenting with tabs and ending each file with a newline.
