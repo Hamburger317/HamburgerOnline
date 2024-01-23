@@ -1,55 +1,55 @@
 class TextMarquee {
-    #marqueeIndex = 0;
+	#marqueeIndex = 0;
 
-    constructor(cycle, marqueeTextElement) {
-        this.cycle = cycle;
-        this.marquee = marqueeTextElement;
-    }
+	constructor(cycle, marqueeTextElement) {
+		this.cycle = cycle;
+		this.marquee = marqueeTextElement;
+	}
 
-    marqueeRender() {
-        this.marquee.addEventListener("animationiteration", () => {
-            this.marquee.innerText = this.cycle[this.#marqueeIndex];
+	marqueeRender() {
+		this.marquee.addEventListener("animationiteration", () => {
+			this.marquee.innerText = this.cycle[this.#marqueeIndex];
 
-            this.#marqueeIndex = ++this.#marqueeIndex % this.cycle.length;
-        });
-    }
+			this.#marqueeIndex = ++this.#marqueeIndex % this.cycle.length;
+		});
+	}
 }
 
 const main = () => {
-    const marqueeText = document.getElementById("homescreen-marquee-text");
-    const disableAnimationsButton =
-        document.getElementById("disable-animations");
+	const marqueeText = document.getElementById("homescreen-marquee-text");
+	const disableAnimationsButton =
+		document.getElementById("disable-animations");
 
-    disableAnimationsButton.addEventListener("click", (event) => {
-        let state =
-            marqueeText.style.animationPlayState == "paused" || ""
-                ? "running"
-                : "paused";
-        marqueeText.style.animationPlayState = state;
+	disableAnimationsButton.addEventListener("click", (event) => {
+		let state =
+			marqueeText.style.animationPlayState == "paused" || ""
+				? "running"
+				: "paused";
+		marqueeText.style.animationPlayState = state;
 
-        /* from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p */
-        [event.target.innerText, event.target.dataset.toggleText] = [
-            event.target.dataset.toggleText,
-            event.target.innerText,
-        ];
-    });
+		/* from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p */
+		[event.target.innerText, event.target.dataset.toggleText] = [
+			event.target.dataset.toggleText,
+			event.target.innerText,
+		];
+	});
 
-    // :3
-    const marqueeCycle = [
-        "Trans Rights!",
-        "Black Lives Matter!",
-        "LGBTQ+ Rights are Human Rights!",
-        "You matter!!",
-        "Free Palestine!!!",
-        "Slava Ukraini!!!",
-        "It's okay to not be okay!",
-        "Stay hopeful.",
-        "We're all going to make it.",
-        "Even the tiniest bits of scraps of hope can save lives, talk to someone who wants help.",
-    ];
+	// :3
+	const marqueeCycle = [
+		"Trans Rights!",
+		"Black Lives Matter!",
+		"LGBTQ+ Rights are Human Rights!",
+		"You matter!!",
+		"Free Palestine!!!",
+		"Slava Ukraini!!!",
+		"It's okay to not be okay!",
+		"Stay hopeful.",
+		"We're all going to make it.",
+		"Even the tiniest bits of scraps of hope can save lives, talk to someone who wants help.",
+	];
 
-    let mar = new TextMarquee(marqueeCycle, marqueeText);
-    mar.marqueeRender();
+	let mar = new TextMarquee(marqueeCycle, marqueeText);
+	mar.marqueeRender();
 };
 
 main();
